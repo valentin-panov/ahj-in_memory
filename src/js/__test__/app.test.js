@@ -1,41 +1,39 @@
-// import App from '../app';
+import Table from '../engine/table';
+import init from '../app';
 
-// jest.useFakeTimers();
-// const app = new App(4);
+jest.mock('../engine/table');
 
-// test('new App(index) should generate board index**2', () => {
-//   expect(document.getElementsByClassName('hole').length).toBe(16);
-// });
+beforeEach(() => {
+  Table.mockClear();
+});
 
-// test('app.gamePlay should call setInterval', () => {
-//   app.gamePlay();
-//   expect(setInterval).toHaveBeenCalled();
-// });
+test('new Table wont be created automatically', () => {
+  expect(Table).not.toHaveBeenCalled();
+});
 
-// test('App.getHole should return element with id hole(index)', () => {
-//   const expected = document.createElement('div');
-//   expected.classList.add('hole');
-//   expected.setAttribute('id', `hole${1}`);
-//   expect(App.getHole(1)).toEqual(expected);
-// });
+test('init() should create new Table', () => {
+  init();
+  expect(Table).toHaveBeenCalledTimes(1);
+});
 
-// test('app.moveGoblin(index) should call App.getHole with (index)', () => {
-//   const expected = document.createElement('div');
-//   expected.classList.add('hole');
-//   expected.setAttribute('id', `hole${1}`);
-//   App.getHole = jest.fn(() => expected);
-//   app.moveGoblin(1);
-//   expect(App.getHole).toHaveBeenCalledWith(1);
-// });
+test('init() should call renderTable method', () => {
+  expect(Table).not.toHaveBeenCalled();
+  init();
+  expect(Table).toHaveBeenCalledTimes(1);
 
-// test('app.moveGoblin(index) should append goblin element to the hole element with (index)', () => {
-//   const expected = document.createElement('div');
-//   expected.classList.add('hole');
-//   expected.setAttribute('id', `hole${1}`);
-//   App.getHole = jest.fn(() => expected);
-//   jest.spyOn(App.getHole(1), 'append');
-//   app.moveGoblin(1);
-//   expect(App.getHole(1).append).toBeCalledWith(app.goblin);
-// });
+  const tableInstance = Table.mock.instances[0];
+  const mokRenderTable = tableInstance.renderTable;
 
-// // не смог разобраться, как затестить содержимое интервального колбэка
+  expect(mokRenderTable).toHaveBeenCalledTimes(1);
+});
+
+test('init() should call addListners method', () => {
+  expect(Table).not.toHaveBeenCalled();
+  init();
+  expect(Table).toHaveBeenCalledTimes(1);
+
+  const tableInstance = Table.mock.instances[0];
+  const mokAddListeners = tableInstance.addListeners;
+
+  expect(mokAddListeners).toHaveBeenCalledTimes(1);
+});

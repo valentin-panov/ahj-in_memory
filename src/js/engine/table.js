@@ -1,5 +1,3 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-nested-ternary */
 import { tableHeader, tableRow } from './template';
 
 export default class Table {
@@ -49,19 +47,26 @@ export default class Table {
     let directionSymbol = '&nbsp';
 
     if (!this.direction[1]) {
-      this.rowElements.sort((a, b) =>
-        a.dataset[type] > b.dataset[type] ? 1 : b.dataset[type] > a.dataset[type] ? -1 : 0
-      );
+      this.rowElements.sort((a, b) => {
+        if (type === 'title') {
+          return a.dataset[type] < b.dataset[type] ? -1 : 1;
+        }
+        return a.dataset[type] - b.dataset[type];
+      });
       directionSymbol = '&#8595';
     } else {
-      this.rowElements.sort((a, b) =>
-        a.dataset[type] < b.dataset[type] ? 1 : b.dataset[type] < a.dataset[type] ? -1 : 0
-      );
+      this.rowElements.sort((a, b) => {
+        if (type === 'title') {
+          return a.dataset[type] > b.dataset[type] ? -1 : 1;
+        }
+        return b.dataset[type] - a.dataset[type];
+      });
       directionSymbol = '&#8593';
     }
 
     const directors = [...document.querySelectorAll('.direction')];
     directors.forEach((element) => {
+      // eslint-disable-next-line no-param-reassign
       element.innerHTML = '&nbsp';
     });
 
