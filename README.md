@@ -1,6 +1,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/dgdlpbsaele6elkk?svg=true)](https://ci.appveyor.com/project/vapanov/ahj-in-memory)
 
-Боевая версия: https://vapanov.github.io/ahj-in-memory/
+Боевая версия: https://vapanov.github.io/ahj-in_memory/
 
 ---
 
@@ -13,36 +13,37 @@
 #### Описание
 
 Формат приходящих данных (JSON):
+
 ```json
 [
   {
     "id": 26,
     "title": "Побег из Шоушенка",
-    "imdb": 9.30,
+    "imdb": 9.3,
     "year": 1994
   },
   {
     "id": 25,
     "title": "Крёстный отец",
-    "imdb": 9.20,
+    "imdb": 9.2,
     "year": 1972
   },
   {
     "id": 27,
     "title": "Крёстный отец 2",
-    "imdb": 9.00,
+    "imdb": 9.0,
     "year": 1974
   },
   {
     "id": 1047,
     "title": "Тёмный рыцарь",
-    "imdb": 9.00,
+    "imdb": 9.0,
     "year": 2008
   },
   {
     "id": 223,
     "title": "Криминальное чтиво",
-    "imdb": 8.90,
+    "imdb": 8.9,
     "year": 1994
   }
 ]
@@ -63,7 +64,6 @@
 ![](../pic/loading-2.png)
 
 Обратите внимание на стрелку возле id.
-
 
 Всё должно собираться через Webpack (включая картинки и стили) и выкладываться на Github Pages через CI.
 

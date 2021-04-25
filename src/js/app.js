@@ -5,8 +5,6 @@ export default function init() {
   const table = new Table(json);
   table.renderTable();
   table.addListeners();
-
-  console.log('init worked');
 }
 
 init();
