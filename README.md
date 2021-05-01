@@ -1,6 +1,6 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/dgdlpbsaele6elkk?svg=true)](https://ci.appveyor.com/project/vapanov/ahj-in-memory)
+[![Build status](https://ci.appveyor.com/api/projects/status/dgdlpbsaele6elkk?svg=true)](https://ci.appveyor.com/project/valentin-panov/ahj-in-memory)
 
-Боевая версия: https://vapanov.github.io/ahj-in_memory/
+Боевая версия: https://valentin-panov.github.io/ahj-in_memory/
 
 ---
 
